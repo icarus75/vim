@@ -28,7 +28,7 @@ set t_Co=256
 set background=dark
 
 " load railscasts theme
-colorscheme railscasts
+colorscheme molokai
 
 highlight SpecialKey ctermfg=darkgreen
 highlight SpecialKey guifg=#808080
@@ -60,11 +60,9 @@ set shiftround                     "round > < to shiftwidth
 set ignorecase smartcase           "ignore case, except if contains uppercase
 set noerrorbells visualbell t_vb=  "don't ring the fucking bell
 set incsearch                      "incremental search
-set mouse=a                        "enable mouse
-set mousehide                      "Hide the mouse cursor while typing
 set virtualedit=onemore            "Allow for cursor beyond last character
 set sc                             "show incomplete commmands
-set tw=72                          "textwidth 72 characters
+set tw=80                          "textwidth 80 characters
 
 autocmd GUIEnter * set visualbell t_vb=
 
@@ -112,7 +110,7 @@ set wmnu                           "show possible completions
 " Whitespace
 " ----------------
 " font face for bad whitespace
-highlight evilws ctermbg=red
+highlight evilws ctermbg=grey
 
 " whitespace configuration
 function! WhitespaceIndentWidth(x)
@@ -143,7 +141,7 @@ function! WhitespaceTab(x)
 endfunction
 
 " default: space indentation with width 4
-call WhitespaceSpace(4)
+call WhitespaceTab(4)
 
 cmap ws2 call WhitespaceSpace(2)
 cmap ws4 call WhitespaceSpace(4)
@@ -168,6 +166,10 @@ endfunction
 " -----------------
 " Code
 " -----------------
+"c
+let c_syntax_for_h = 1
+au FileType c setlocal colorcolumn=80
+
 "go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
